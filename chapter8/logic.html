@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>交互逻辑开发 | React打造精美WebApp</title>
+    <meta name="description" content="采用React Hooks + Redux + immutable.js打造完整前端工作流，进阶前端综合能力">
+    
+    
+    <link rel="preload" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css" as="style"><link rel="preload" href="/react-cloud-music/assets/js/app.e299b1b3.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/2.8eb8cfb1.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/43.4f6ab56e.js" as="script"><link rel="prefetch" href="/react-cloud-music/assets/js/10.5bfa84c0.js"><link rel="prefetch" href="/react-cloud-music/assets/js/11.adedd085.js"><link rel="prefetch" href="/react-cloud-music/assets/js/12.e5be6a9b.js"><link rel="prefetch" href="/react-cloud-music/assets/js/13.faf3cf32.js"><link rel="prefetch" href="/react-cloud-music/assets/js/14.00526d91.js"><link rel="prefetch" href="/react-cloud-music/assets/js/15.3c5531a9.js"><link rel="prefetch" href="/react-cloud-music/assets/js/16.ec816bcc.js"><link rel="prefetch" href="/react-cloud-music/assets/js/17.1ea17f73.js"><link rel="prefetch" href="/react-cloud-music/assets/js/18.049f74b3.js"><link rel="prefetch" href="/react-cloud-music/assets/js/19.79c55887.js"><link rel="prefetch" href="/react-cloud-music/assets/js/20.9eabb84e.js"><link rel="prefetch" href="/react-cloud-music/assets/js/21.f0c7dbf8.js"><link rel="prefetch" href="/react-cloud-music/assets/js/22.b7152763.js"><link rel="prefetch" href="/react-cloud-music/assets/js/23.cf715e40.js"><link rel="prefetch" href="/react-cloud-music/assets/js/24.bb93ccd0.js"><link rel="prefetch" href="/react-cloud-music/assets/js/25.47046ab7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/26.3c101fb3.js"><link rel="prefetch" href="/react-cloud-music/assets/js/27.899cbec3.js"><link rel="prefetch" href="/react-cloud-music/assets/js/28.5345455c.js"><link rel="prefetch" href="/react-cloud-music/assets/js/29.e859f64f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/3.b025557a.js"><link rel="prefetch" href="/react-cloud-music/assets/js/30.76abd5bf.js"><link rel="prefetch" href="/react-cloud-music/assets/js/31.44bbbca3.js"><link rel="prefetch" href="/react-cloud-music/assets/js/32.05ceb899.js"><link rel="prefetch" href="/react-cloud-music/assets/js/33.18bd1106.js"><link rel="prefetch" href="/react-cloud-music/assets/js/34.0d972c16.js"><link rel="prefetch" href="/react-cloud-music/assets/js/35.a420de29.js"><link rel="prefetch" href="/react-cloud-music/assets/js/36.31c0f83f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/37.cd6e3cc1.js"><link rel="prefetch" href="/react-cloud-music/assets/js/38.445b40ce.js"><link rel="prefetch" href="/react-cloud-music/assets/js/39.dd7ae9dd.js"><link rel="prefetch" href="/react-cloud-music/assets/js/4.2f35b444.js"><link rel="prefetch" href="/react-cloud-music/assets/js/40.49adb6ff.js"><link rel="prefetch" href="/react-cloud-music/assets/js/41.82ca4ed7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/42.bb7a58b3.js"><link rel="prefetch" href="/react-cloud-music/assets/js/44.5238b30d.js"><link rel="prefetch" href="/react-cloud-music/assets/js/45.18362628.js"><link rel="prefetch" href="/react-cloud-music/assets/js/46.802a45ca.js"><link rel="prefetch" href="/react-cloud-music/assets/js/47.501c8ed8.js"><link rel="prefetch" href="/react-cloud-music/assets/js/48.b3502593.js"><link rel="prefetch" href="/react-cloud-music/assets/js/49.74223fbd.js"><link rel="prefetch" href="/react-cloud-music/assets/js/5.59baf809.js"><link rel="prefetch" href="/react-cloud-music/assets/js/6.1e6581b5.js"><link rel="prefetch" href="/react-cloud-music/assets/js/7.2caa9fd0.js"><link rel="prefetch" href="/react-cloud-music/assets/js/8.7565c6c6.js"><link rel="prefetch" href="/react-cloud-music/assets/js/9.604c31b6.js">
+    <link rel="stylesheet" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/react-cloud-music/" class="home-link router-link-active"><!----> <span class="site-name">React打造精美WebApp</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>项目说明</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter1/" class="sidebar-link">说明</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="交互逻辑开发"><a href="#交互逻辑开发" aria-hidden="true" class="header-anchor">#</a> 交互逻辑开发</h1> <p>现在，我们终于进入到了逻辑层的开发，之前我们已经准备好了相关的数据并且已经让组件连接，这里会省不少事情。但是整个交互的逻辑还是比较复杂的，希望大家能够提前做好心理准备，迎接这个挑战吧。</p> <p>首先把问题拆分一下，对播放器而言，进行交互的部分无非就是两个部分：mini版和全屏版。我们先从简单一些的mini版开始入手吧。</p> <h2 id="mini播放器"><a href="#mini播放器" aria-hidden="true" class="header-anchor">#</a> mini播放器</h2> <p>mini播放器目前依赖的数据是播放状态和播放进度数据。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> song<span class="token punctuation">,</span> fullScreen<span class="token punctuation">,</span> playing<span class="token punctuation">,</span> percent <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> clickPlaying<span class="token punctuation">,</span> setFullScreen <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+</code></pre></div><p>进度条这里的JSX代码也需要修改一下:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 暂停的时候唱片也停止旋转</span>
+<span class="token operator">&lt;</span>img className<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">play </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>playing <span class="token operator">?</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;pause&quot;</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span> src<span class="token operator">=</span><span class="token punctuation">{</span>song<span class="token punctuation">.</span>al<span class="token punctuation">.</span>picUrl<span class="token punctuation">}</span> width<span class="token operator">=</span><span class="token string">&quot;40&quot;</span> height<span class="token operator">=</span><span class="token string">&quot;40&quot;</span> alt<span class="token operator">=</span><span class="token string">&quot;img&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>ProgressCircle radius<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">32</span><span class="token punctuation">}</span> percent<span class="token operator">=</span><span class="token punctuation">{</span>percent<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">{</span> playing <span class="token operator">?</span> 
+    <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">&quot;icon-mini iconfont icon-pause&quot;</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token function">clickPlaying</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#xe650<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+    <span class="token punctuation">:</span>
+    <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">&quot;icon-mini iconfont icon-play&quot;</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token function">clickPlaying</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#xe61e<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span> 
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>ProgressCircle<span class="token operator">&gt;</span>
+</code></pre></div><p>当然在父组件中也要做相应修改:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">clickPlaying</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e<span class="token punctuation">,</span> state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>MiniPlayer
+      song<span class="token operator">=</span><span class="token punctuation">{</span>currentSong<span class="token punctuation">}</span>
+      fullScreen<span class="token operator">=</span><span class="token punctuation">{</span>fullScreen<span class="token punctuation">}</span>
+      playing<span class="token operator">=</span><span class="token punctuation">{</span>playing<span class="token punctuation">}</span>
+      toggleFullScreen<span class="token operator">=</span><span class="token punctuation">{</span>toggleFullScreenDispatch<span class="token punctuation">}</span>
+      clickPlaying<span class="token operator">=</span><span class="token punctuation">{</span>clickPlaying<span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>NormalPlayer 
+      song<span class="token operator">=</span><span class="token punctuation">{</span>currentSong<span class="token punctuation">}</span>
+      fullScreen<span class="token operator">=</span><span class="token punctuation">{</span>fullScreen<span class="token punctuation">}</span>
+      playing<span class="token operator">=</span><span class="token punctuation">{</span>playing<span class="token punctuation">}</span>
+      toggleFullScreen<span class="token operator">=</span><span class="token punctuation">{</span>toggleFullScreenDispatch<span class="token punctuation">}</span>
+      clickPlaying<span class="token operator">=</span><span class="token punctuation">{</span>clickPlaying<span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre></div><h2 id="初次完成播放"><a href="#初次完成播放" aria-hidden="true" class="header-anchor">#</a> 初次完成播放</h2> <p>Ok, 现在我们来处理更复杂的全屏播放器部分。</p> <p>首先定义必要的播放器属性:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Player/index.js</span>
+
+<span class="token comment">//目前播放时间</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>currentTime<span class="token punctuation">,</span> setCurrentTime<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//歌曲总时长</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>duration<span class="token punctuation">,</span> setDuration<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//歌曲播放进度</span>
+<span class="token keyword">let</span> percent <span class="token operator">=</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>currentTime <span class="token operator">/</span> duration<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> currentTime <span class="token operator">/</span> duration<span class="token punctuation">;</span>
+</code></pre></div><p>同时需要接受redux中的currentIndex:</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token keyword">const</span> <span class="token punctuation">{</span> fullScreen<span class="token punctuation">,</span> playing<span class="token punctuation">,</span> currentIndex<span class="token punctuation">,</span> currentSong<span class="token punctuation">:</span> immutableCurrentSong <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> toggleFullScreenDispatch<span class="token punctuation">,</span> togglePlayingDispatch<span class="token punctuation">,</span> changeCurrentIndexDispatch<span class="token punctuation">,</span> changeCurrentDispatch <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> currentSong <span class="token operator">=</span> immutableCurrentSong<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>我们现在的当务之急是让播放器能够播放, 所以现在我们需要放上我们的核心元素————audio标签:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//绑定ref</span>
+<span class="token keyword">const</span> audioRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token comment">//...</span>
+    <span class="token operator">&lt;</span>audio ref<span class="token operator">=</span><span class="token punctuation">{</span>audioRef<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>audio<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>现在先写一些逻辑:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>currentSong<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//currentIndex默认为-1，临时改成0</span>
+  <span class="token keyword">let</span> current <span class="token operator">=</span> playList<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">changeCurrentDispatch</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//赋值currentSong</span>
+  audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token function">getSongUrl</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//播放状态</span>
+  <span class="token function">setCurrentTime</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//从头开始播放</span>
+  <span class="token function">setDuration</span><span class="token punctuation">(</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>dt <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//时长</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>其中，getSongUrl为一个封装在api/utils.js中的方法:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//拼接出歌曲的url链接</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getSongUrl</span> <span class="token operator">=</span> <span class="token parameter">id</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://music.163.com/song/media/outer/url?id=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.mp3</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>引入:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> getSongUrl <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../api/utils&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>但是你现在会看到这样的报错信息:
+<img src="/react-cloud-music/chapter8/error.jpg" alt="project"></p> <p>这是因为初始化store数据的时候，currentSong是一个空对象，song.al为undefined, 因此song.al.picUrl就会报错。</p> <p>那怎么来规避这个问题呢？</p> <p>很简单，我们在渲染播放器的时候判断一下currentSong是否对空对象就可以了。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> isEmptyObject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../api/utils&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//JSX</span>
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span> <span class="token function">isEmptyObject</span><span class="token punctuation">(</span>currentSong<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> 
+      <span class="token operator">&lt;</span>MiniPlayer
+        song<span class="token operator">=</span><span class="token punctuation">{</span>currentSong<span class="token punctuation">}</span>
+        fullScreen<span class="token operator">=</span><span class="token punctuation">{</span>fullScreen<span class="token punctuation">}</span>
+        playing<span class="token operator">=</span><span class="token punctuation">{</span>playing<span class="token punctuation">}</span>
+        toggleFullScreen<span class="token operator">=</span><span class="token punctuation">{</span>toggleFullScreenDispatch<span class="token punctuation">}</span>
+        clickPlaying<span class="token operator">=</span><span class="token punctuation">{</span>clickPlaying<span class="token punctuation">}</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span> 
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">{</span> <span class="token function">isEmptyObject</span><span class="token punctuation">(</span>currentSong<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> 
+      <span class="token operator">&lt;</span>NormalPlayer
+        song<span class="token operator">=</span><span class="token punctuation">{</span>currentSong<span class="token punctuation">}</span>
+        fullScreen<span class="token operator">=</span><span class="token punctuation">{</span>fullScreen<span class="token punctuation">}</span>
+        playing<span class="token operator">=</span><span class="token punctuation">{</span>playing<span class="token punctuation">}</span>
+        toggleFullScreen<span class="token operator">=</span><span class="token punctuation">{</span>toggleFullScreenDispatch<span class="token punctuation">}</span>
+        clickPlaying<span class="token operator">=</span><span class="token punctuation">{</span>clickPlaying<span class="token punctuation">}</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span>audio ref<span class="token operator">=</span><span class="token punctuation">{</span>audioRef<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>audio<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>好，现在你打开项目应该可以听到背景音乐了，现在我们迈出了第一步。接下来就是一步步不断地完善播放的逻辑。</p> <h2 id="播放和暂停"><a href="#播放和暂停" aria-hidden="true" class="header-anchor">#</a> 播放和暂停</h2> <p>首先是播放和暂停的逻辑。</p> <p>其实之前已经完成，只不过没有和audio元素对接。现在通过监听playing变量来实现:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  playing <span class="token operator">?</span> audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>playing<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在在mini播放器可以看到效果，但是normalPlayer里面却没反应，现在补充上里面的逻辑。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//normalPlayer/index.js</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> song<span class="token punctuation">,</span> fullScreen<span class="token punctuation">,</span> playing <span class="token punctuation">}</span> <span class="token operator">=</span>  props<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> toggleFullScreen<span class="token punctuation">,</span> clickPlaying <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token comment">//JSX中的修改</span>
+<span class="token comment">//CdWrapper下唱片图片</span>
+<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;cd&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>img
+    className<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">image play </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>playing <span class="token operator">?</span> <span class="token string">&quot;&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;pause&quot;</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span>
+    src<span class="token operator">=</span><span class="token punctuation">{</span>song<span class="token punctuation">.</span>al<span class="token punctuation">.</span>picUrl <span class="token operator">+</span> <span class="token string">&quot;?param=400x400&quot;</span><span class="token punctuation">}</span>
+    alt<span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+  <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token comment">//中间暂停按钮</span>
+<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;icon i-center&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>i
+    className<span class="token operator">=</span><span class="token string">&quot;iconfont&quot;</span>
+    onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token function">clickPlaying</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token operator">!</span>playing<span class="token punctuation">)</span><span class="token punctuation">}</span>
+    dangerouslySetInnerHTML<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+      __html<span class="token punctuation">:</span> playing <span class="token operator">?</span> <span class="token string">&quot;&amp;#xe723;&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;&amp;#xe731;&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="进度控制"><a href="#进度控制" aria-hidden="true" class="header-anchor">#</a> 进度控制</h2> <p>之前写的播放时间都是mock数据, 现在填充成动态数据。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//父组件传值</span>
+<span class="token operator">&lt;</span>NormalPlayer
+  song<span class="token operator">=</span><span class="token punctuation">{</span>currentSong<span class="token punctuation">}</span>
+  fullScreen<span class="token operator">=</span><span class="token punctuation">{</span>fullScreen<span class="token punctuation">}</span>
+  playing<span class="token operator">=</span><span class="token punctuation">{</span>playing<span class="token punctuation">}</span>
+  duration<span class="token operator">=</span><span class="token punctuation">{</span>duration<span class="token punctuation">}</span><span class="token comment">//总时长</span>
+  currentTime<span class="token operator">=</span><span class="token punctuation">{</span>currentTime<span class="token punctuation">}</span><span class="token comment">//播放时间</span>
+  percent<span class="token operator">=</span><span class="token punctuation">{</span>percent<span class="token punctuation">}</span><span class="token comment">//进度</span>
+  toggleFullScreen<span class="token operator">=</span><span class="token punctuation">{</span>toggleFullScreenDispatch<span class="token punctuation">}</span>
+  clickPlaying<span class="token operator">=</span><span class="token punctuation">{</span>clickPlaying<span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>同时有一点需要注意，就是audio标签在播放的过程中会不断地触发onTimeUpdate事件，在此需要更新currentTime变量。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">updateTime</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">setCurrentTime</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>currentTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//JSX</span>
+<span class="token operator">&lt;</span>audio
+  ref<span class="token operator">=</span><span class="token punctuation">{</span>audioRef<span class="token punctuation">}</span>
+  onTimeUpdate<span class="token operator">=</span><span class="token punctuation">{</span>updateTime<span class="token punctuation">}</span>
+<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>audio<span class="token operator">&gt;</span>
+</code></pre></div><p>现在在normalPlayer中：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> song<span class="token punctuation">,</span> fullScreen<span class="token punctuation">,</span> playing<span class="token punctuation">,</span> percent<span class="token punctuation">,</span> duration<span class="token punctuation">,</span> currentTime <span class="token punctuation">}</span> <span class="token operator">=</span>  props<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> toggleFullScreen<span class="token punctuation">,</span> clickPlaying<span class="token punctuation">,</span> onProgressChange <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token comment">//相应属性传给进度条</span>
+<span class="token operator">&lt;</span>ProgressWrapper<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">&quot;time time-l&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token function">formatPlayTime</span><span class="token punctuation">(</span>currentTime<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;progress-bar-wrapper&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>ProgressBar
+      percent<span class="token operator">=</span><span class="token punctuation">{</span>percent<span class="token punctuation">}</span>
+      percentChange<span class="token operator">=</span><span class="token punctuation">{</span>onProgressChange<span class="token punctuation">}</span>
+    <span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>ProgressBar<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;time time-r&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token function">formatPlayTime</span><span class="token punctuation">(</span>duration<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>ProgressWrapper<span class="token operator">&gt;</span>
+</code></pre></div><p>ps: 其中，formatPlayTime为api/utils.js中的一个工具函数：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//转换歌曲播放时间</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">formatPlayTime</span> <span class="token operator">=</span> <span class="token parameter">interval</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  interval <span class="token operator">=</span> interval <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">// |0表示向下取整</span>
+  <span class="token keyword">const</span> minute <span class="token operator">=</span> <span class="token punctuation">(</span>interval <span class="token operator">/</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> second <span class="token operator">=</span> <span class="token punctuation">(</span>interval <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>minute<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>second<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>我要强调的重点是传给ProgressBar的两个参数，一个是percent，用来控制进度条的显示长度，另一个是onProgressChange，这个其实是一个进度条被滑动或点击时用来改变percent的回调函数。我们在父组件来定义它：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">onProgressChange</span> <span class="token operator">=</span> <span class="token parameter">curPercent</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newTime <span class="token operator">=</span> curPercent <span class="token operator">*</span> duration<span class="token punctuation">;</span>
+  <span class="token function">setCurrentTime</span><span class="token punctuation">(</span>newTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span>currentTime <span class="token operator">=</span> newTime<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>playing<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//父组件传值</span>
+<span class="token operator">&lt;</span>NormalPlayer
+  <span class="token comment">//...</span>
+  onProgressChange<span class="token operator">=</span><span class="token punctuation">{</span>onProgressChange<span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>那么之前封装的进度条组件并没有处理percent相关的逻辑，现在在进度条组件中来增加。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> transform <span class="token operator">=</span> <span class="token function">prefixStyle</span><span class="token punctuation">(</span><span class="token string">'transform'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> percent <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> percentChange <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token comment">//监听percent</span>
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>percent <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> percent <span class="token operator">&lt;=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>touch<span class="token punctuation">.</span>initiated<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> barWidth <span class="token operator">=</span> progressBar<span class="token punctuation">.</span>current<span class="token punctuation">.</span>clientWidth <span class="token operator">-</span> progressBtnWidth<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> offsetWidth <span class="token operator">=</span> percent <span class="token operator">*</span> barWidth<span class="token punctuation">;</span>
+    progress<span class="token punctuation">.</span>current<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>offsetWidth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    progressBtn<span class="token punctuation">.</span>current<span class="token punctuation">.</span>style<span class="token punctuation">[</span>transform<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate3d(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>offsetWidth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px, 0, 0)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// eslint-disable-next-line</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>percent<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">_changePercent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> barWidth <span class="token operator">=</span> progressBar<span class="token punctuation">.</span>current<span class="token punctuation">.</span>clientWidth <span class="token operator">-</span> progressBtnWidth<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> curPercent <span class="token operator">=</span> progress<span class="token punctuation">.</span>current<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> barWidth<span class="token punctuation">;</span>
+  <span class="token function">percentChange</span><span class="token punctuation">(</span>curPercent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//点击和滑动结束事件改变percent</span>
+<span class="token keyword">const</span> <span class="token function-variable function">progressClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">_changePercent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">progressTouchEnd</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token function">_changePercent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>OK, 进度条被我们改了差不多了，现在就能够对接我们的播放器进度啦！</p> <img src="/react-cloud-music/chapter8/progress-over.gif" alt="project"> <p>在最后，我们也把mini播放器的进度对接一下:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//父组件传值</span>
+<span class="token operator">&lt;</span>MiniPlayer
+  <span class="token comment">//...</span>
+  percent<span class="token operator">=</span><span class="token punctuation">{</span>percent<span class="token punctuation">}</span>
+<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>MiniPlayer<span class="token operator">&gt;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//miniPlayer/index.js</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> full<span class="token punctuation">,</span> song<span class="token punctuation">,</span> playing<span class="token punctuation">,</span> percent <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token comment">//JSX</span>
+<span class="token operator">&lt;</span>ProgressCircle radius<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">32</span><span class="token punctuation">}</span> percent<span class="token operator">=</span><span class="token punctuation">{</span>percent<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+<span class="token comment">//...</span>
+</code></pre></div><p>做到这里大家可以完完整整地听一首歌了，实在不容易，接下来还有上一曲和下一曲的功能，我们慢慢来。</p> <h2 id="上下曲切换逻辑"><a href="#上下曲切换逻辑" aria-hidden="true" class="header-anchor">#</a> 上下曲切换逻辑</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//一首歌循环</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleLoop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span>currentTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token function">changePlayingState</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">handlePrev</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//播放列表只有一首歌时单曲循环</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>playList<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> index <span class="token operator">=</span> currentIndex <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> index <span class="token operator">=</span> playList<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>playing<span class="token punctuation">)</span> <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">handleNext</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//播放列表只有一首歌时单曲循环</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>playList<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> index <span class="token operator">=</span> currentIndex <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> playList<span class="token punctuation">.</span>length<span class="token punctuation">)</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>playing<span class="token punctuation">)</span> <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>这部分逻辑传给normalPlayer:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//传递给normalPlayer</span>
+handlePrev<span class="token operator">=</span><span class="token punctuation">{</span>handlePrev<span class="token punctuation">}</span>
+handleNext<span class="token operator">=</span><span class="token punctuation">{</span>handleNext<span class="token punctuation">}</span>
+</code></pre></div><p>在normalPlayer中绑定按钮点击事件:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> toggleFullScreen<span class="token punctuation">,</span> clickPlaying<span class="token punctuation">,</span> onProgressChange<span class="token punctuation">,</span> handlePrev<span class="token punctuation">,</span> handleNext <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token comment">//JSX</span>
+<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;icon i-left&quot;</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>handlePrev<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">&quot;iconfont&quot;</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#xe6e1<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token comment">//...</span>
+<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;icon i-right&quot;</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleNext<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">&quot;iconfont&quot;</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#xe718<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+</code></pre></div><p>现在我们把父组件中控制歌曲播放的的逻辑完善一下:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//记录当前的歌曲，以便于下次重渲染时比对是否是一首歌</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>preSong<span class="token punctuation">,</span> setPreSong<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//先mock一份currentIndex</span>
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    <span class="token operator">!</span>playList<span class="token punctuation">.</span>length <span class="token operator">||</span>
+    currentIndex <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span>
+    <span class="token operator">!</span>playList<span class="token punctuation">[</span>currentIndex<span class="token punctuation">]</span> <span class="token operator">||</span>
+    playList<span class="token punctuation">[</span>currentIndex<span class="token punctuation">]</span><span class="token punctuation">.</span>id <span class="token operator">===</span> preSong<span class="token punctuation">.</span>id 
+  <span class="token punctuation">)</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> current <span class="token operator">=</span> playList<span class="token punctuation">[</span>currentIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">changeCurrentDispatch</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//赋值currentSong</span>
+  <span class="token function">setPreSong</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token function">getSongUrl</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    audioRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">togglePlayingDispatch</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//播放状态</span>
+  <span class="token function">setCurrentTime</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//从头开始播放</span>
+  <span class="token function">setDuration</span><span class="token punctuation">(</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>dt <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//时长</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>playList<span class="token punctuation">,</span> currentIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="播放模式"><a href="#播放模式" aria-hidden="true" class="header-anchor">#</a> 播放模式</h2> <p>分三种: 单曲循环、顺序循环和随机播放</p> <p>我们先在Player/index.js，也就是父组件中写相应逻辑：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//从props中取redux数据和dispatch方法</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+  playing<span class="token punctuation">,</span>
+  currentSong<span class="token punctuation">:</span>immutableCurrentSong<span class="token punctuation">,</span>
+  currentIndex<span class="token punctuation">,</span>
+  playList<span class="token punctuation">:</span>immutablePlayList<span class="token punctuation">,</span>
+  mode<span class="token punctuation">,</span><span class="token comment">//播放模式</span>
+  sequencePlayList<span class="token punctuation">:</span>immutableSequencePlayList<span class="token punctuation">,</span><span class="token comment">//顺序列表</span>
+  fullScreen
+<span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+  togglePlayingDispatch<span class="token punctuation">,</span>
+  changeCurrentIndexDispatch<span class="token punctuation">,</span>
+  changeCurrentDispatch<span class="token punctuation">,</span>
+  changePlayListDispatch<span class="token punctuation">,</span><span class="token comment">//改变playList</span>
+  changeModeDispatch<span class="token punctuation">,</span><span class="token comment">//改变mode</span>
+  toggleFullScreenDispatch
+<span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> playList <span class="token operator">=</span> immutablePlayList<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> sequencePlayList <span class="token operator">=</span> immutableSequencePlayList<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> currentSong <span class="token operator">=</span> immutableCurrentSong<span class="token punctuation">.</span><span class="token function">toJS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在的需求是点击normalPlayer最左边的按钮，能够切换播放模式，我们现在在父组件写相应的逻辑。</p> <p>顺便说一句。不知道你发现没有: 关于业务逻辑的部分都是在父组件完成然后直接传给子组件，而子组件虽然也有自己的状态，但大部分是控制UI层面的，逻辑都是从props中接受，
+这也是在潜移默化中给大家展示了UI和逻辑分离的组件设计模式。通过分离关注点，解耦不同的模块，能够大量节省开发和维护成本。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Player/index</span>
+<span class="token keyword">const</span> <span class="token function-variable function">changeMode</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> newMode <span class="token operator">=</span> <span class="token punctuation">(</span>mode <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//顺序模式</span>
+    <span class="token function">changePlayListDispatch</span><span class="token punctuation">(</span>sequencePlayList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token function">findIndex</span><span class="token punctuation">(</span>currentSong<span class="token punctuation">,</span> sequencePlayList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//单曲循环</span>
+    <span class="token function">changePlayListDispatch</span><span class="token punctuation">(</span>sequencePlayList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//随机播放</span>
+    <span class="token keyword">let</span> newList <span class="token operator">=</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>sequencePlayList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token function">findIndex</span><span class="token punctuation">(</span>currentSong<span class="token punctuation">,</span> newList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">changePlayListDispatch</span><span class="token punctuation">(</span>newList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">changeCurrentIndexDispatch</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">changeModeDispatch</span><span class="token punctuation">(</span>newMode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>目前的播放列表是在组件内mock的，现在已经不太合适，我们把mock列表移动到reducer中的defaultState中，这里就不展示了，要注意playList和sequenceList都要mock并且mock一样的数据。</p> <p>接下来我们来解释一下changeMode中的内容,findIndex方法用来找出歌曲在对应列表中的索引，shuffle方法用来打乱一个列表，达成随机列表的效果，这两个函数都定义在api/utils.js中。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">getRandomInt</span><span class="token punctuation">(</span><span class="token parameter">min<span class="token punctuation">,</span> max</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>max <span class="token operator">-</span> min <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> min<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 随机算法</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">shuffle</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> new_arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    new_arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> new_arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token function">getRandomInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> t <span class="token operator">=</span> new_arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    new_arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> new_arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    new_arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> new_arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 找到当前的歌曲索引</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">findIndex</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">song<span class="token punctuation">,</span> list</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> list<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> song<span class="token punctuation">.</span>id <span class="token operator">===</span> item<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>引入到父组件:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> getSongUrl<span class="token punctuation">,</span> isEmptyObject<span class="token punctuation">,</span> shuffle<span class="token punctuation">,</span> findIndex <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../api/utils&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>接下来我们给normalPlayer传入:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>NormalPlayer
+  <span class="token comment">//...</span>
+  mode<span class="token operator">=</span><span class="token punctuation">{</span>mode<span class="token punctuation">}</span>
+  changeMode<span class="token operator">=</span><span class="token punctuation">{</span>changeMode<span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p>现在就需要对normalPlayer做一些事情了：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Operator标签下</span>
+<span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;icon i-left&quot;</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>changeMode<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>i
+    className<span class="token operator">=</span><span class="token string">&quot;iconfont&quot;</span>
+    dangerouslySetInnerHTML<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> __html<span class="token punctuation">:</span> <span class="token function">getPlayMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//getPlayMode方法</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getPlayMode</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> content<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>mode <span class="token operator">===</span> playMode<span class="token punctuation">.</span>sequence<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    content <span class="token operator">=</span> <span class="token string">&quot;&amp;#xe625;&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>mode <span class="token operator">===</span> playMode<span class="token punctuation">.</span>loop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    content <span class="token operator">=</span> <span class="token string">&quot;&amp;#xe653;&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    content <span class="token operator">=</span> <span class="token string">&quot;&amp;#xe61b;&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> content<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>其中playMode常量我们已经定义过，直接引入:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> playMode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../../api/config'</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在大家打开redux-devtools可以看到数据的变化，下面是随机模式</p> <img src="/react-cloud-music/chapter8/mode.jpg" alt="project"> <p>可以看到playList现在已经乱序了。</p> <p>功能是实现了，但是只有一个图标放在这里，可能很多用户不知道是什么意思，如果能够文字提示一下，体验会更好一些。废话不多说，直接开始封装崭新的Toast组件，这里只是由于是侧重项目，
+不可能将Toast的功能面面俱到，只是让大家体会一下封装的过程，以此来提升自己的内功，这也是我不用UI框架的原因。</p> <p>在baseUI目录下新建Toast文件夹:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//Toast/index.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>useState<span class="token punctuation">,</span> useImperativeHandle<span class="token punctuation">,</span> forwardRef<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> styled <span class="token keyword">from</span> <span class="token string">'styled-components'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> CSSTransition <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-transition-group'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'../../assets/global-style'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ToastWrapper <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 50px;
+  /* background: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;highlight-background-color&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">; */
+  &amp;.drop-enter{
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  &amp;.drop-enter-active{
+    opacity: 1;
+    transition: all 0.3s;
+    transform: translate3d(0, 0, 0);
+  }
+  &amp;.drop-exit-active{
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translate3d(0, 100%, 0);
+  }
+  .text{
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-size-l&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+  }
+</span><span class="token template-punctuation string">`</span></span>
+<span class="token comment">//外面组件需要拿到这个函数组件的ref，因此用forwardRef</span>
+<span class="token keyword">const</span> Toast <span class="token operator">=</span> <span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>show<span class="token punctuation">,</span> setShow<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>timer<span class="token punctuation">,</span> setTimer<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>text<span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+  <span class="token comment">//外面组件拿函数组件ref的方法，用useImperativeHandle这个hook</span>
+  <span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 做了防抖处理</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">setShow</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">setTimer</span><span class="token punctuation">(</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setShow</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>CSSTransition <span class="token keyword">in</span><span class="token operator">=</span><span class="token punctuation">{</span>show<span class="token punctuation">}</span> timeout<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">300</span><span class="token punctuation">}</span> classNames<span class="token operator">=</span><span class="token string">&quot;drop&quot;</span> unmountOnExit<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>ToastWrapper<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;text&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>text<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>ToastWrapper<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>CSSTransition<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span>Toast<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在放到Player/index.js中使用:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Toast <span class="token keyword">from</span> <span class="token string">&quot;./../../baseUI/toast/index&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//...</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>modeText<span class="token punctuation">,</span> setModeText<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> toastRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//...</span>
+<span class="token keyword">const</span> <span class="token function-variable function">changeMode</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> newMode <span class="token operator">=</span> <span class="token punctuation">(</span>mode <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+    <span class="token function">setModeText</span><span class="token punctuation">(</span><span class="token string">&quot;顺序循环&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+    <span class="token function">setModeText</span><span class="token punctuation">(</span><span class="token string">&quot;单曲循环&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>newMode <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+    <span class="token function">setModeText</span><span class="token punctuation">(</span><span class="token string">&quot;随机播放&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">changeModeDispatch</span><span class="token punctuation">(</span>newMode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  toastRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//JSX</span>
+<span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token comment">//...</span>
+    <span class="token operator">&lt;</span>Toast text<span class="token operator">=</span><span class="token punctuation">{</span>modeText<span class="token punctuation">}</span> ref<span class="token operator">=</span><span class="token punctuation">{</span>toastRef<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Toast<span class="token operator">&gt;</span>  
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>效果:</p> <img src="/react-cloud-music/chapter8/toast.gif" alt="project"> <p>那现在还有最后一个问题需要处理，就是歌曲播放完了之后，紧接着需要怎么处理。</p> <p>我们回到父组件，把这个处理逻辑写在audio标签的onEnded事件回调中:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>audio
+  ref<span class="token operator">=</span><span class="token punctuation">{</span>audioRef<span class="token punctuation">}</span>
+  onTimeUpdate<span class="token operator">=</span><span class="token punctuation">{</span>updateTime<span class="token punctuation">}</span>
+  onEnded<span class="token operator">=</span><span class="token punctuation">{</span>handleEnd<span class="token punctuation">}</span>
+<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>audio<span class="token operator">&gt;</span>
+</code></pre></div><p>由于之前封装了下一曲和单曲循环的逻辑，这里就非常简单了。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> playMode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../api/config'</span><span class="token punctuation">;</span>
+<span class="token comment">//...</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleEnd</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>mode <span class="token operator">===</span> playMode<span class="token punctuation">.</span>loop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleLoop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">handleNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>OK，到这里，mini/全屏播放器基本的功能都完成了！</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/react-cloud-music/assets/js/app.e299b1b3.js" defer></script><script src="/react-cloud-music/assets/js/2.8eb8cfb1.js" defer></script><script src="/react-cloud-music/assets/js/43.4f6ab56e.js" defer></script>
+  </body>
+</html>
