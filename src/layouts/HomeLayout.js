@@ -1,25 +1,25 @@
-import React from "react";
-import { renderRoutes } from "react-router-config";
-import { Top, Tab, TabItem } from "./HomeLayout.style";
-import { NavLink } from "react-router-dom";
-import Player from "../application/Player/index";
+import React from 'react'
+import { renderRoutes } from 'react-router-config'
+import { Top, Tab, TabItem } from './HomeLayout.style'
+import { NavLink } from 'react-router-dom'
+import Player from '../application/Player/index'
 
 function Home(props) {
-  const { route } = props;
-
+  const { route } = props
+  console.log(route)
   return (
     <div>
       <Top>
         <span
           className="iconfont menu"
-          onClick={() => alert("用户中心正在开发中，敬请期待:)")}
+          onClick={() => alert('用户中心正在开发中，敬请期待:)')}
         >
           &#xe65c;
         </span>
         <span className="title">云音悦</span>
         <span
           className="iconfont search"
-          onClick={() => props.history.push("/search")}
+          onClick={() => props.history.push('/search')}
         >
           &#xe62b;
         </span>
@@ -44,7 +44,7 @@ function Home(props) {
       {renderRoutes(route.routes)}
       <Player></Player>
     </div>
-  );
+  )
 }
 
-export default React.memo(Home);
+export default React.memo(Home)
